@@ -6,10 +6,9 @@ public class stars : MonoBehaviour
 {
     public List<GameObject> star = new List<GameObject>();
 
-    Vector3 starScale = new Vector3(5, 5, 5);
+    //Vector3 starScale = new Vector3(5, 5, 5);
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         float max = 250.0f;
 
@@ -19,6 +18,12 @@ public class stars : MonoBehaviour
             go.name = "Star "+i;
             //go.transform.localScale = starScale;
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     void Update()
