@@ -8,7 +8,7 @@ public class stars : MonoBehaviour
 
     public List<GameObject> starList = new List<GameObject>();
 
-    Vector3 starScale = new Vector3(1, 1, 1);
+    Vector3 starScale = new Vector3(10, 10, 10);
 
     // Start is called before the first frame update
     void Start()
