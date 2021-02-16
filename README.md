@@ -13,6 +13,6 @@ All the effects are dynamic.
 
 By adding access to star data (a ScriptableObject) one could specify a color scheme based on the star's spectral type and luminosity class.
 
-In addition, multiple stars can be placed and warp lines (work in progress) can be drawn from stars within a certain distance.
+In addition, multiple stars can be placed and warp lines (work in progress) can be drawn between stars within a certain distance.
 
 ![stars](https://user-images.githubusercontent.com/74695555/108004847-45285680-6fb4-11eb-901c-1f9b5874b4d1.png)
