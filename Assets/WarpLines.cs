@@ -6,10 +6,12 @@ using System;
 public class WarpLines : MonoBehaviour
 {
     public List<GameObject> warpLine = new List<GameObject>();
+    public int numLines;
 
     void Start()
     {
         List<GameObject> starList = new List<GameObject>();
+        numLines = 0;
         foreach (GameObject star in GameObject.FindGameObjectsWithTag("Star"))
         {
             starList.Add(star);
@@ -20,11 +22,11 @@ public class WarpLines : MonoBehaviour
                 Vector3 targetPos = starList[i].transform.position;
                 float distance = Vector3.Distance(starPos, targetPos);
 
-                Debug.Log("si: " + starIndex + " i: " + i + " Distance: "+distance);
+                //Debug.Log("si: " + starIndex + " i: " + i + " Distance: "+distance);
 
-                if (distance < 200f)
+                if (distance < 60f)
                 {
-                    DrawWarpLine(starPos, targetPos);
+                    CreateWarpLine(starPos, targetPos, starIndex, i);
                 }
             }
         }
@@ -36,19 +38,25 @@ public class WarpLines : MonoBehaviour
 
     }
 
-    void DrawWarpLine (Vector3 sP, Vector3 tP)
+    void CreateWarpLine (Vector3 sP, Vector3 tP, int sSys, int eSys)
     {
-        GameObject go = Instantiate(warpLine[0], new Vector3(0f, 0f, 0f), Quaternion.identity);
-        go.name = "WarpLine " + " ";
+        GameObject go = Instantiate(warpLine[numLines], new Vector3(0f, 0f, 0f), Quaternion.identity);
+        go.name = "WarpLine " + sSys + "__" + eSys;
+
+        WarpLine scriptInstance = go.GetComponent<WarpLine>();
+        scriptInstance.startIndex = sSys;
+        scriptInstance.endIndex = eSys;
 
         LineRenderer lineRenderer = go.GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
         Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
         lineRenderer.material = whiteDiffuseMat;
-        lineRenderer.startWidth = 2f;
-        lineRenderer.endWidth = 2f;
+        lineRenderer.startWidth = 0.2f;
+        lineRenderer.endWidth = 0.2f;
 
         lineRenderer.SetPosition(0, sP);
         lineRenderer.SetPosition(1, tP);
+
+        numLines++;
     }
 }
