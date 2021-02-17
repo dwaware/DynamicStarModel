@@ -15,4 +15,4 @@ By adding access to star data (a ScriptableObject) one could specify a color sch
 
 In addition, multiple stars can be placed and warp lines (work in progress) can be drawn between stars within a certain distance.
 
-![stars](https://user-images.githubusercontent.com/74695555/108004847-45285680-6fb4-11eb-901c-1f9b5874b4d1.png)
+![warps](https://user-images.githubusercontent.com/74695555/108279853-80549200-713a-11eb-970c-77df79df4659.png)
